@@ -69,8 +69,9 @@ export const backupFromDoc = async <T>(
           } else {
             if (data[collectionName][doc.id][refKey]) {
               if (Array.isArray(data[collectionName][doc.id][refKey])) {
-                for (let val of data[collectionName][doc.id][refKey]) {
-                  data[collectionName][doc.id][refKey] = getPath(val)
+                for (var i = 0; i < data[collectionName][doc.id][refKey].length; i++) {
+                  const val = data[collectionName][doc.id][refKey][i];
+                  data[collectionName][doc.id][refKey][i] = getPath(val);
                 }
               } else if (
                 typeof data[collectionName][doc.id][refKey].path === 'string'
@@ -149,8 +150,9 @@ export const backup = async <T>(
           } else {
             if (data[collectionName][doc.id][refKey]) {
               if (Array.isArray(data[collectionName][doc.id][refKey])) {
-                for (let val of data[collectionName][doc.id][refKey]) {
-                  data[collectionName][doc.id][refKey] = getPath(val)
+                for (var i = 0; i < data[collectionName][doc.id][refKey].length; i++) {
+                  const val = data[collectionName][doc.id][refKey][i];
+                  data[collectionName][doc.id][refKey][i] = getPath(val);
                 }
               } else if (
                 typeof data[collectionName][doc.id][refKey].path === 'string'
